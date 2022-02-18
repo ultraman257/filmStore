@@ -127,7 +127,7 @@ router.get("/search", function (req, res) {
 module.exports = router;
 
 function validateFields(body, name, res) {
-  if (!body.hasOwnProperty(name)) {
+  if (!Object.prototype.hasOwnProperty.call(body, name)) {
     return res.json({ message: "failed", reason: "missing field " + name });
   }
 
